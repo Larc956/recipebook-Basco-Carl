@@ -4,7 +4,7 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse('Recipe Book')
         
-def task_list(request):
+def recipe_list(request):
     ctx = {
     "recipes": [
         {
@@ -31,7 +31,7 @@ def task_list(request):
                     "quantity": "1 packet"
                 }
             ],
-            "link": "/recipe/1"
+            "link": "/ledger/recipe/1"
         },
         {
             "name": "Recipe 2",
@@ -65,13 +65,13 @@ def task_list(request):
                     "quantity": "1 kilo"
                 }
             ],
-            "link": "/recipe/2"
+            "link": "/ledger/recipe/2"
         }
     ]
     }
     return render(request, "ledger/recipe_list.html", ctx)
     
-def task_list(request):
+def recipe_one(request):
     ctx = {
     "name": "Recipe 1",
     "ingredients": [
@@ -96,11 +96,11 @@ def task_list(request):
             "quantity": "1 packet"
         }
     ],
-    "link": "/recipe/1"
+    "link": "/ledger/recipe/1"
     }
     return render(request, "ledger/recipe_one.html", ctx)
     
-def task_list(request):
+def recipe_two(request):
     ctx = {
     "name": "Recipe 2",
     "ingredients": [
@@ -133,6 +133,6 @@ def task_list(request):
             "quantity": "1 kilo"
         }
     ],
-    "link": "/recipe/2"
+    "link": "/ledger/recipe/2"
     }
     return render(request, "ledger/recipe_two.html", ctx)
