@@ -31,7 +31,7 @@ def recipe_list(request):
                     "quantity": "1 packet"
                 }
             ],
-            "link": "/ledger/recipe/1"
+            "link": "/recipe/1" 
         },
         {
             "name": "Recipe 2",
@@ -50,7 +50,7 @@ def recipe_list(request):
                 },
                 {
                     "name": "water",
-                    "quanity": "1 cup"
+                    "quantity": "1 cup"
                 },
                 {
                     "name": "salt",
@@ -65,74 +65,75 @@ def recipe_list(request):
                     "quantity": "1 kilo"
                 }
             ],
-            "link": "/ledger/recipe/2"
+            "link": "/recipe/2"
         }
     ]
     }
     return render(request, "ledger/recipe_list.html", ctx)
-    
-def recipe_one(request):
-    ctx = {
-    "name": "Recipe 1",
-    "ingredients": [
-        {
-            "name": "tomato",
-            "quantity": "3pcs"
-        },
-        {
-            "name": "onion",
-            "quantity": "1pc"
-        },
-        {
-            "name": "pork",
-            "quantity": "1kg"
-        },
-        {
-            "name": "water",
-            "quantity": "1L"
-        },
-        {
-            "name": "sinigang mix",
-            "quantity": "1 packet"
+
+def recipe_detail(request, recipe_id):
+    if recipe_id == 1:
+        ctx = {
+            "name": "Recipe 1",
+            "ingredients": [
+                {
+                    "name": "tomato",
+                    "quantity": "3pcs"
+                },
+                {
+                    "name": "onion",
+                    "quantity": "1pc"
+                },
+                {
+                    "name": "pork",
+                    "quantity": "1kg"
+                },
+                {
+                    "name": "water",
+                    "quantity": "1L"
+                },
+                {
+                    "name": "sinigang mix",
+                    "quantity": "1 packet"
+                }
+            ],
+            "link": "/recipe/1"
         }
-    ],
-    "link": "/ledger/recipe/1"
-    }
-    return render(request, "ledger/recipe_one.html", ctx)
-    
-def recipe_two(request):
-    ctx = {
-    "name": "Recipe 2",
-    "ingredients": [
-        {
-            "name": "garlic",
-            "quantity": "1 head"
-        },
-        {
-            "name": "onion",
-            "quantity": "1pc"
-        },
-        {
-            "name": "vinegar",
-            "quantity": "1/2cup"
-        },
-        {
-            "name": "water",
-            "quantity": "1 cup"
-        },
-        {
-            "name": "salt",
-            "quantity": "1 tablespoon"
-        },
-        {
-            "name": "whole black peppers",
-            "quantity": "1 tablespoon"
-        },
-        {
-            "name": "pork",
-            "quantity": "1 kilo"
+    elif recipe_id == 2:
+        ctx = {
+            "name": "Recipe 2",
+            "ingredients": [
+                {
+                    "name": "garlic",
+                    "quantity": "1 head"
+                },
+                {
+                    "name": "onion",
+                    "quantity": "1pc"
+                },
+                {
+                    "name": "vinegar",
+                    "quantity": "1/2cup"
+                },
+                {
+                    "name": "water",
+                    "quantity": "1 cup"
+                },
+                {
+                    "name": "salt",
+                    "quantity": "1 tablespoon"
+                },
+                {
+                    "name": "whole black peppers",
+                    "quantity": "1 tablespoon"
+                },
+                {
+                    "name": "pork",
+                    "quantity": "1 kilo"
+                }
+            ],
+            "link": "/recipe/2"
         }
-    ],
-    "link": "/ledger/recipe/2"
-    }
-    return render(request, "ledger/recipe_two.html", ctx)
+    else:
+        ctx = {}
+    return render(request, "ledger/recipe_detail.html", ctx)
