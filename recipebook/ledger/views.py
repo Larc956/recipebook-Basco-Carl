@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Recipe
-
-def index(request):
-    return HttpResponse('Recipe Book')
         
 def recipe_list(request):
     ctx = {
