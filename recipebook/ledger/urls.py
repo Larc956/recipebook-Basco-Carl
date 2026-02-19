@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, recipe_list, recipe_detail
+from .views import recipe_list, recipe_detail
 
 app_name = "ledger"
 
