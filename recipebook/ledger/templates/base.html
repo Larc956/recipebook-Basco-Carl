@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>{% block title %}Recipe Book{% endblock %}</title>
-</head>
-<body>
-    <header>
-        <h1>Recipe Book</h1>
-    </header>
+<html>
+    <head>
+        <title>Recipe Book</title>
+    </head>
+    <body>
+        <header>
+            <h2>Recipe Book</h2>
+            <nav>
+                {% if user.is_authenticated %}
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </header>
+        <hr>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-</body>
+        <h1>{% block page_title %}Welcome{% endblock %}</h1>
+        
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
 </html>
