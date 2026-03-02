@@ -1,28 +1,31 @@
 <html>
-    <head>
-        <title>Recipe Book</title>
-    </head>
-    <body>
-        <header>
-            <h2>Recipe Book</h2>
-            <nav>
-                {% if user.is_authenticated %}
-                    <form method="POST" action="{% url 'logout' %}">
-                        {% csrf_token %}
-                        <button type="submit">Logout</button>
-                    </form>
-                {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                {% endif %}
-            </nav>
-        </header>
-        <hr>
 
-        <h1>{% block page_title %}Welcome{% endblock %}</h1>
-        
-        <div>
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
+<head>
+    <title>Recipe Book</title>
+</head>
+
+<body>
+    <header>
+        <h2>Recipe Book</h2>
+        <nav>
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+    <hr>
+
+    <h1>{% block page_title %}Welcome{% endblock %}</h1>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
 </html>

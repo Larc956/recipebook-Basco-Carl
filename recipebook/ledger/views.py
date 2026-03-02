@@ -3,12 +3,14 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Recipe
 
+
 class RecipeListView(ListView):
     model = Recipe
-    template_name = 'ledger/recipe_list.html'
-    context_object_name = 'recipes'
+    template_name = "ledger/recipe_list.html"
+    context_object_name = "recipes"
+
 
 class RecipeDetailView(LoginRequiredMixin, DetailView):
     model = Recipe
-    template_name = 'ledger/recipe_detail.html'
-    context_object_name = 'recipe'
+    template_name = "ledger/recipe_detail.html"
+    context_object_name = "recipe"
