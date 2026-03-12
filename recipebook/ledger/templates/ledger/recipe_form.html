@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Add a new recipe{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Recipe</button>
+</form>
+<br>
+<a href="{% url 'ledger:recipe_list' %}">Back to Recipes</a>
+{% endblock %}

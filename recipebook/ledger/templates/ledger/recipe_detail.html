@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
-{% block page_title %}{{ recipe.name }}{% endblock %}
+{% block page_title %}Recipe Details{% endblock %}
 
 {% block content %}
-<p><strong>Author:</strong> {{ recipe.author.name }}</p>
+<h2>{{ recipe.name }}</h2>
+<p>Author: {{ recipe.author.name }}</p>
 
 <h3>Ingredients</h3>
 <ul>
@@ -18,10 +19,12 @@
         <img src="{{ img.image.url }}" alt="{{ img.description }}" style="max-width: 300px; margin: 10px;">
         <p>{{ img.description }}</p>
     {% empty %}
-        <p>No images uploaded yet.</p>
+        <p>No images found. Please upload images.</p>
     {% endfor %}
 </div>
 
 <br>
+<a href="{% url 'ledger:recipe_image_create' recipe.pk %}">Add New Image</a>
+<br><br>
 <a href="{% url 'ledger:recipe_list' %}">Back to Recipes</a>
 {% endblock %}
