@@ -1,0 +1,12 @@
+myenvrecipe/
+myenv/
+venv/
+env/
+
+.env
+
+db.sqlite3
+
+__pycache__/
+*.pyc
+*.log
