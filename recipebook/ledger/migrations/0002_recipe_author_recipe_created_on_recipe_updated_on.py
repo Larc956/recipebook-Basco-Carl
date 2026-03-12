@@ -8,26 +8,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ledger', '0001_initial'),
-        ('useraccounts', '0001_initial'),
+        ("ledger", "0001_initial"),
+        ("useraccounts", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='recipe',
-            name='author',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='recipes', to='useraccounts.profile'),
+            model_name="recipe",
+            name="author",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="recipes",
+                to="useraccounts.profile",
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='created_on',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="recipe",
+            name="created_on",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='updated_on',
+            model_name="recipe",
+            name="updated_on",
             field=models.DateTimeField(auto_now=True),
         ),
     ]
